@@ -1,0 +1,178 @@
+@font-face {
+	font-family: "Roboto";
+	src: url("../assets/fonts/Roboto-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Roboto";
+	src: url("../assets/fonts/Roboto-Bold.ttf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+}
+
+html {
+	min-height: 100dvh;
+}
+
+body {
+	min-height: 100dvh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--Blue-700);
+	font-family: "Roboto", sans-serif;
+}
+
+.container {
+	background-color: var(--White);
+}
+
+.container .sign-up,
+.container .success.show {
+	min-height: 100dvh;
+	gap: 25px;
+	display: flex;
+	flex-direction: column;
+}
+
+.container h1 {
+	font-size: 3.7rem;
+	color: var(--Blue-800);
+}
+
+.container .text {
+	font-size: 1.6rem;
+	color: var(--Blue-800);
+}
+
+.container input,
+.container button {
+	padding: 18px 24px;
+	border-radius: 7px;
+	font-size: 1.6rem;
+}
+
+.container input:active {
+	border: 1px solid var(--Blue-800);
+	border: 1px solid #000;
+}
+
+.container .send-button,
+.container .dimiss {
+	background-color: var(--Blue-800);
+	border: none;
+	font-weight: 700;
+	color: var(--White);
+	transition: 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.informations .send-button:hover,
+.container .dimiss:hover {
+	background: #b43a7d;
+	background: linear-gradient(90deg, rgb(198, 50, 87) 0%, rgba(253, 70, 29, 1) 50%, rgb(252, 121, 69) 100%);
+	box-shadow: 0px 7px 30px rgb(198, 50, 87);
+}
+
+.container .send-button:active,
+.container .dimiss:active {
+	scale: 0.98;
+}
+
+/* sign-up */
+
+.sign-up.filled {
+	display: none;
+}
+
+picture {
+	border-radius: 12px;
+}
+
+picture img {
+	width: 100%;
+}
+
+.sign-up .informations {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 0 30px 40px;
+}
+
+.informations .verify {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+
+.informations .verify p {
+	display: flex;
+	gap: 10px;
+	font-size: 1.6rem;
+	color: var(--Blue-800);
+}
+
+.informations .verify p::before {
+	content: "";
+	display: inline-block;
+	width: 18px;
+	height: 16px;
+	background: url("../assets/images/icon-success.svg") no-repeat center/contain;
+	flex-shrink: 0;
+}
+
+.informations label {
+	position: relative;
+	margin-bottom: -7px;
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: var(--Blue-800);
+}
+
+.informations input#email {
+	border: 1px solid var(--Grey);
+}
+
+/* success */
+
+.success {
+	display: none;
+	padding: 0 30px 40px;
+}
+
+.success.show {
+	display: flex;
+	justify-content: center;
+}
+
+.success img {
+	max-width: 65px;
+	margin: auto 0 20px;
+}
+
+.success .text {
+	margin-bottom: auto;
+}
+
+/* Error states */
+
+.sign-up.invalid .informations label::after {
+	content: "Valid email required";
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: var(--Red);
+}
+
+.sign-up.invalid .informations input#email {
+	border: 1px solid var(--Red);
+	background-color: hsla(4, 100%, 67%, 0.15);
+}
+.sign-up.invalid .informations input#email::placeholder {
+	color: var(--Red);
+}
